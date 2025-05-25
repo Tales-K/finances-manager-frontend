@@ -1,0 +1,149 @@
+.dashboard-container.dashboard-wide {
+  width: 80vw;
+  max-width: 1600px;
+  margin: 2rem auto 0 auto;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+.dashboard-top-card {
+  margin-bottom: 2rem;
+}
+.dashboard-top-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 2rem;
+  min-height: 120px;
+}
+.dashboard-top-left, .dashboard-top-right {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  align-self: center;
+}
+.dashboard-top-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-top-item {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: #2563eb;
+  font-weight: 500;
+  min-width: 160px;
+}
+.dashboard-top-item.dashboard-center {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7rem;
+}
+.dashboard-top-item.dashboard-center .dashboard-top-value {
+  margin-left: 0.7rem;
+  margin-top: 0;
+}
+.dashboard-top-right.dashboard-center {
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  justify-content: center;
+}
+.dashboard-top-icon.income {
+  color: #22c55e;
+  margin-right: 0.5rem;
+}
+.dashboard-top-icon.expense {
+  color: #ef4444;
+  margin-right: 0.5rem;
+}
+.dashboard-top-value {
+  font-size: 1.1rem;
+  color: #334155;
+  font-weight: 600;
+  margin-left: 2.1rem;
+}
+.dashboard-top-divider {
+  width: 2px;
+  background: #e5e7eb;
+  margin: 0 2.5rem;
+  border-radius: 2px;
+}
+.dashboard-top-right {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  background: #e0e7ff;
+  color: #2563eb;
+  transition: background 0.2s, color 0.2s;
+}
+.dashboard-action-btn.income {
+  background: #d1fae5;
+  color: #22c55e;
+}
+.dashboard-action-btn.expense {
+  background: #fee2e2;
+  color: #ef4444;
+}
+.dashboard-action-btn.transfer {
+  background: #f1f5f9;
+  color: #2563eb;
+}
+.dashboard-action-btn:hover {
+  filter: brightness(0.95);
+}
+.dashboard-columns {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  align-items: flex-start; /* Make columns align to the top */
+}
+.dashboard-col {
+  flex: 1;
+  display: block; /* Use block to allow cards to flow naturally with margin */
+}
+.dashboard-col .graphic-card {
+  min-height: 120px;
+  font-size: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 2rem;
+  margin-bottom: 2rem; /* Add space between cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}
+.dashboard-col .graphic-card:last-child {
+  margin-bottom: 0;
+}
+.dashboard-col .graphic-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #2563eb;
+}

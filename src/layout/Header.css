@@ -1,0 +1,44 @@
+/* Header styles for web layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  height: 64px;
+}
+.header-nav {
+  display: flex;
+  gap: 2rem;
+}
+.header-nav button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.header-nav button.active, .header-nav button:hover {
+  background: #e0e7ff;
+}
+.header-icons {
+  display: flex;
+  gap: 1.2rem;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+}
+.icon-btn:hover {
+  background: #f1f5f9;
+}

@@ -1,0 +1,93 @@
+.transactions-listing {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.transactions-list-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+.transactions-list-overdue-alert {
+  background: #fee2e2;
+  color: #e11d48;
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.transactions-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.transactions-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.transactions-list-item:last-child {
+  border-bottom: none;
+}
+.transactions-list-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: #f1f5f9;
+  border-radius: 50%;
+}
+.transactions-list-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.transactions-list-title-main {
+  font-weight: 500;
+  color: #222;
+  font-size: 1rem;
+  text-align: left;
+}
+.transactions-list-date {
+  font-size: 0.92rem;
+  color: #a3a3a3;
+  text-align: left;
+}
+.transactions-list-value {
+  font-weight: 600;
+  color: #222;
+  font-size: 1rem;
+  min-width: 90px;
+  text-align: right;
+}
+.transactions-list-value.overdue {
+  color: #e11d48;
+}
+.transactions-list-more {
+  color: #888;
+  font-size: 0.98rem;
+  text-align: center;
+  margin: 0.5rem 0 0.2rem 0;
+  cursor: pointer;
+}
+.transactions-list-next-title {
+  background: #f1f5f9;
+  color: #888;
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  text-align: center;
+  font-weight: 500;
+  margin: 1rem 0 0.5rem 0;
+}
