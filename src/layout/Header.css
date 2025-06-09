@@ -1,33 +1,57 @@
 /* Header styles for web layout */
 .header {
+  background: var(--background-dark);
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-color);
+  width: 100vw;
+  min-width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #fff;
-  border-bottom: 1px solid #e5e7eb;
-  height: 64px;
+  justify-content: center;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  justify-content: center;
+  position: relative;
+}
+.header-logo {
+  height: 40px;
+  margin-right: 2rem;
 }
 .header-nav {
   display: flex;
   gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 .header-nav button {
   background: none;
   border: none;
-  color: #2563eb;
+  color: var(--text-light);
   font-size: 1.1rem;
   font-weight: 500;
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .header-nav button.active, .header-nav button:hover {
-  background: #e0e7ff;
+  background: var(--secondary-hover);
+  color: var(--primary-color);
 }
 .header-icons {
   display: flex;
   gap: 1.2rem;
+  position: absolute;
+  right: 2rem;
 }
 .icon-btn {
   background: none;
@@ -38,7 +62,8 @@
   transition: background 0.2s;
   display: flex;
   align-items: center;
+  color: var(--text-light);
 }
 .icon-btn:hover {
-  background: #f1f5f9;
+  background: var(--secondary-hover);
 }

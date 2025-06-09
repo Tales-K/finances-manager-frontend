@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./layout/Header";
-import { Navigation } from "./components";
 import Login from "./pages/Login/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Transactions from "./pages/Transactions/Transactions";
@@ -15,7 +14,6 @@ function App() {
     setUser(username);
     setPage("dashboard");
   };
-
   if (!user) {
     return <Login onLogin={handleLogin} />;
   }

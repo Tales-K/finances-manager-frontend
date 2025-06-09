@@ -44,7 +44,7 @@
 
 .app-container {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f7f8fa;
+  background: var(--background-dark);
   min-height: 100vh;
   min-width: 100vw;
   width: 100vw;
@@ -230,19 +230,22 @@ main {
 }
 .graphic-card {
   flex: 1;
-  background: #f1f5f9;
+  background: var(--card-bg);
   border-radius: 6px;
   padding: 2rem;
   text-align: center;
-  color: #64748b;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 .transactions-list, .reports-list {
   margin-top: 1.5rem;
 }
 .transaction-item, .report-item {
-  background: #f1f5f9;
+  background: var(--card-bg);
   border-radius: 6px;
   padding: 1rem;
   margin-bottom: 1rem;
-  color: #334155;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
 }

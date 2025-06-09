@@ -1,7 +1,7 @@
 import "./Dashboard.css";
 import { FaArrowDown, FaArrowUp, FaExchangeAlt } from "react-icons/fa";
-import TransactionsList from "../Transactions/TransactionsList";
-import ReceivablesList from "../Transactions/ReceivablesList";
+import TransactionsList from "./TransactionsList";
+import ReceivablesList from "./ReceivablesList";
 import AccountsCard from "./AccountsCard";
 import CreditCardsCard from "./CreditCardsCard";
 

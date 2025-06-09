@@ -11,6 +11,7 @@ export default function Header({ currentPage, onNavigate }) {
   return (
     <header className="header">
       <div className="header-content">
+        <img src="/static/logo.svg" alt="Logo" className="header-logo" />
         <nav className="header-nav">
           <button
             className={currentPage === "dashboard" ? "active" : ""}

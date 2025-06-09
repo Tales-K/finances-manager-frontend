@@ -1,0 +1,115 @@
+.transaction-card {
+  background: var(--card-bg);
+  color: var(--text-light);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08); /* matches .login-form */
+  border: 1px solid var(--border-color);
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 300px;
+}
+
+.transaction-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.transaction-card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.more-button {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  transition: background 0.2s;
+}
+
+.more-button:hover {
+  background: var(--secondary-hover);
+}
+
+.transaction-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.transaction-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-light);
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  font-size: 1rem;
+}
+
+.transaction-name {
+  color: #333;
+}
+
+.transaction-amount {
+  font-family: monospace;
+}
+
+.transaction-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: var(--primary-color);
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+  margin-top: auto;
+}
+
+.total-amount {
+  font-family: monospace;
+  font-weight: 500;
+}
+
+.grouped-by-day {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.transaction-day-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  padding: 0.7rem 0.5rem;
+}
+
+.transaction-day-label {
+  min-width: 2.5rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: 0.2rem;
+}
+
+.transaction-day-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
