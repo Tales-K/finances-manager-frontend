@@ -1,0 +1,28 @@
+.reports-page {
+  min-height: 100vh;
+  background: #111827;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  color: #f9fafb;
+}
+
+.reports-header {
+  margin-bottom: 32px;
+}
+
+.reports-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+.reports-content {
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  padding: 48px;
+  text-align: center;
+  color: #9ca3af;
+}

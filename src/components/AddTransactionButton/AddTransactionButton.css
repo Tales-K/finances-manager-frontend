@@ -1,0 +1,75 @@
+/* Add Transaction Button (Header) */
+.add-transaction-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.add-transaction-options {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  min-width: 160px;
+}
+
+.add-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: #f9fafb;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-align: left;
+}
+
+.add-option:hover {
+  background: #374151;
+}
+
+.add-option svg {
+  font-size: 16px;
+  color: #2563eb;
+}
+
+/* Update add button with text */
+.add-btn {
+  width: auto;
+  min-width: 40px;
+  height: 40px;
+  border: 2px solid #374151;
+  border-radius: 20px;
+  background: transparent;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-btn span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.add-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}

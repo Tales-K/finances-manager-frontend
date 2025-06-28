@@ -1,115 +1,241 @@
+/* Transaction Card Component */
 .transaction-card {
-  background: var(--card-bg);
-  color: var(--text-light);
-  border-radius: 8px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08); /* matches .login-form */
-  border: 1px solid var(--border-color);
-  padding: 1.5rem 1.2rem;
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  min-width: 300px;
+  color: #f9fafb;
+  width: 100%;
+  max-width: 320px;
 }
 
-.transaction-card-header {
+.transaction-card.medium {
+  min-height: 300px;
+}
+
+.transaction-card.large {
+  min-height: 400px;
+}
+
+/* Card Header */
+.card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  padding: 16px 20px;
+  border-bottom: 1px solid #374151;
 }
 
-.transaction-card-header h3 {
+.card-header h3 {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.more-button {
-  background: none;
-  border: none;
-  color: var(--text-light);
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 4px;
-  padding: 0.2rem 0.5rem;
-  transition: background 0.2s;
-}
-
-.more-button:hover {
-  background: var(--secondary-hover);
-}
-
-.transaction-card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.transaction-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--text-light);
-  background: none;
-  border: none;
-  padding: 0.2rem 0;
-  font-size: 1rem;
-}
-
-.transaction-name {
-  color: #333;
-}
-
-.transaction-amount {
-  font-family: monospace;
-}
-
-.transaction-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  color: var(--primary-color);
-  border-top: 1px solid #eee;
-  padding-top: 0.5rem;
-  margin-top: auto;
-}
-
-.total-amount {
-  font-family: monospace;
-  font-weight: 500;
-}
-
-.grouped-by-day {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
-
-.transaction-day-group {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 1.2rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-  padding: 0.7rem 0.5rem;
-}
-
-.transaction-day-label {
-  min-width: 2.5rem;
-  color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 16px;
   font-weight: 600;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding-top: 0.2rem;
+  color: #f9fafb;
 }
 
-.transaction-day-list {
+.card-menu {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.card-menu:hover {
+  background: #374151;
+  color: #f9fafb;
+}
+
+/* Card Content */
+.card-content {
+  padding: 0;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Transaction Items */
+.card-transaction-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: transparent;
+  border-bottom: 1px solid #374151;
+  transition: background-color 0.2s;
+}
+
+.card-transaction-item:last-child {
+  border-bottom: none;
+}
+
+.card-transaction-item:hover {
+  background: #374151;
+}
+
+.transaction-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  font-size: 16px;
+}
+
+.transaction-details {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 2px;
+  min-width: 0;
+}
+
+.transaction-title {
+  font-weight: 500;
+  color: #f9fafb;
+  font-size: 14px;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.transaction-account {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.transaction-amount-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.transaction-amount {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.transaction-amount.income {
+  color: #10b981;
+}
+
+.transaction-amount.expense {
+  color: #ef4444;
+}
+
+.transaction-status {
+  font-size: 12px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+/* Card Footer */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-top: 1px solid #374151;
+  background: #111827;
+}
+
+.total-label {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.total-amount {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.total-amount.positive {
+  color: #10b981;
+}
+
+.total-amount.negative {
+  color: #ef4444;
+}
+
+/* Empty State */
+.empty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 40px 20px;
+  color: #6b7280;
+  text-align: center;
+  min-height: 150px;
+}
+
+.empty-card span {
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .transaction-card {
+    max-width: 100%;
+    margin: 0 -8px;
+  }
+  
+  .card-header {
+    padding: 12px 16px;
+  }
+  
+  .card-content {
+    padding: 12px;
+    gap: 8px;
+  }
+  
+  .card-transaction-item {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+  
+  .transaction-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .transaction-title {
+    font-size: 13px;
+  }
+  
+  .transaction-account {
+    font-size: 11px;
+  }
+  
+  .transaction-amount {
+    font-size: 13px;
+  }
+  
+  .card-footer {
+    padding: 10px 16px;
+  }
 }

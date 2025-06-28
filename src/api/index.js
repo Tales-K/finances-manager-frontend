@@ -1,37 +1,171 @@
-// API utilities will be placed here
-/*
-id	amountInCents	description	activityType	categoryId	date	done
-2910182637	-15000	Psicólogo	0	53667365	2025-06-02	false
-1386587438	-45560	Luz 	0	53667366	2025-06-04	false
-3000675612	80000	Mala tio Vani	1	53667371	2025-06-04	true
-1385358127	662414	Salário	1	53667374	2025-06-07	false
-1544080021	192327	Sonega	1	53667374	2025-06-07	false
-2705526691	-9990	Internet	0	53667366	2025-06-07	false
-2910193786	-53000	Marmitas	0	53667362	2025-06-08	false
-2297302401	0	Spotify Taís	1	146565860	2025-06-09	false
-2301704186	500	Spotify Carol	1	146565860	2025-06-09	false
-2454982853	0	Spotify Tiago	1	146565860	2025-06-09	false
-2636467508	0	Google Tiago	1	146565860	2025-06-09	false
-2636469422	0	Google Taís	1	146565860	2025-06-09	false
-2770770697	2856	Netflix Tiago	1	146565860	2025-06-09	false
-2819361331	500	Spotify Melissa	1	146565860	2025-06-09	false
-2876662936	1556	Netflix mãe	1	146565860	2025-06-09	false
-2910182638	-15000	Psicólogo	0	53667365	2025-06-09	false
-2477355122	-300000	Guardar caixinha	0	53667367	2025-06-10	false
-2586333346	-838	Youtube premium	0	53667376	2025-06-10	false
-2748806115	-5572	Conta Agua	0	53667366	2025-06-10	false
-2776572174	-40000	Academia	0	53667372	2025-06-10	false
-2834059355	-20000	Ajuda vó gorda	0	53667361	2025-06-10	false
-2320411950	0	carro	0	53667379	2025-06-11	true
-372446-305	-249062	Fatura Junho 2025	0		2025-06-12	false
-2910187126	-8059	IPTU casa vó nilda	0	53667366	2025-06-15	false
-2910182639	-15000	Psicólogo	0	53667365	2025-06-16	false
-2910182640	-15000	Psicólogo	0	53667365	2025-06-23	false
-2856989597	-24332	IPVA	0	53667379	2025-06-28	false
-2837588313	-17000	Limpeza pátio	0	53667366	2025-06-30	false
-2878840873	-100000	Despesas gerais do mês	0	53667370	2025-06-30	false
-2880374786	-15000	Limpeza casa	0	53667366	2025-06-30	false
-2880393806	-5000	Limpeza carro	0	53667379	2025-06-30	false
-2910182641	-15000	Psicólogo	0	53667365	2025-06-30	false
+// API client utilities
+import { defaultCategories } from '../data/categories';
+import { mockTransactions, mockUserCategories, mockAccounts, mockCreditCards, mockTags } from './mockData';
 
-*/
+// Mock API base URL - replace with actual API URL
+const API_BASE_URL = 'http://localhost:3001/api';
+
+/**
+ * Categories API
+ * Fetches both default and user-created categories
+ */
+export const getCategories = async () => {
+  try {
+    // Mock API call - replace with actual API call
+    const response = await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          data: mockUserCategories
+        });
+      }, 300);
+    });
+
+    // Combine default categories with user-created categories
+    const userCategories = response.data.map((category) => ({
+      ...category,
+      icon: null, // User categories don't have predefined icons
+      color: "#6b7280", // Default gray color for user categories
+      isUserCreated: true,
+    }));
+
+    const allDefaultCategories = [
+      ...defaultCategories.expenses,
+      ...defaultCategories.incomes,
+    ];
+
+    return [...allDefaultCategories, ...userCategories];
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+    // Fallback to default categories only
+    return [...defaultCategories.expenses, ...defaultCategories.incomes];
+  }
+};
+
+/**
+ * Transactions API
+ * Fetches all transactions
+ */
+export const getTransactions = async () => {
+  try {
+    // Mock API call - replace with actual API call
+    const response = await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          data: mockTransactions,
+        });
+      }, 300);
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching transactions:", error);
+    return [];
+  }
+};
+
+/**
+ * Dashboard Transactions API
+ * Fetches limited transactions for dashboard overview
+ * Returns overdue and upcoming transactions separately
+ */
+export const getDashboardTransactions = async () => {
+  try {
+    // Mock API call - replace with actual API call
+    const response = await new Promise((resolve) => {
+      setTimeout(() => {
+        const currentDate = new Date();
+        
+        // Filter for expense transactions only (type = "EXPENSE")
+        const expenseTransactions = mockTransactions.filter(t => t.type === "EXPENSE");
+        
+        // Get overdue transactions (past due and not paid)
+        const overdue = expenseTransactions
+          .filter(transaction => {
+            const transactionDate = new Date(transaction.date);
+            return !transaction.paid && transactionDate < currentDate;
+          })
+          .slice(0, 4); // Limit to 4 for dashboard
+        
+        // Get upcoming transactions (future and not paid)
+        const upcoming = expenseTransactions
+          .filter(transaction => {
+            const transactionDate = new Date(transaction.date);
+            return !transaction.paid && transactionDate >= currentDate;
+          })
+          .slice(0, 4); // Limit to 4 for dashboard
+
+        resolve({
+          data: {
+            overdue,
+            upcoming
+          }
+        });
+      }, 300);
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching dashboard transactions:", error);
+    return { overdue: [], upcoming: [] };
+  }
+};
+
+/**
+ * Accounts API
+ * Fetches all user accounts
+ */
+export const getAccounts = async () => {
+  try {
+    const response = await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          data: mockAccounts
+        });
+      }, 200);
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching accounts:", error);
+    return [];
+  }
+};
+
+/**
+ * Credit Cards API
+ * Fetches all user credit cards
+ */
+export const getCreditCards = async () => {
+  try {
+    const response = await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          data: mockCreditCards
+        });
+      }, 200);
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching credit cards:", error);
+    return [];
+  }
+};
+
+/**
+ * Tags API
+ * Fetches all user tags
+ */
+export const getTags = async () => {
+  try {
+    const response = await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          data: mockTags
+        });
+      }, 200);
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching tags:", error);
+    return [];
+  }
+};

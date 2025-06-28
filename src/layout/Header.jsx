@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 import {
   FaCog,
@@ -7,30 +8,30 @@ import {
   FaFileAlt,
 } from "react-icons/fa";
 
-export default function Header({ currentPage, onNavigate }) {
+export default function Header({ currentPage }) {
   return (
     <header className="header">
       <div className="header-content">
-        <img src="/static/logo.svg" alt="Logo" className="header-logo" />
+        <img src="/logo.svg" alt="Logo" className="header-logo" />
         <nav className="header-nav">
-          <button
+          <Link
+            to="/dashboard"
             className={currentPage === "dashboard" ? "active" : ""}
-            onClick={() => onNavigate("dashboard")}
           >
             <FaChartPie size={18} color="#2563eb" /> Dashboard
-          </button>
-          <button
+          </Link>
+          <Link
+            to="/transactions"
             className={currentPage === "transactions" ? "active" : ""}
-            onClick={() => onNavigate("transactions")}
           >
             <FaExchangeAlt size={18} color="#2563eb" /> Transactions
-          </button>
-          <button
+          </Link>
+          <Link
+            to="/reports"
             className={currentPage === "reports" ? "active" : ""}
-            onClick={() => onNavigate("reports")}
           >
             <FaFileAlt size={18} color="#2563eb" /> Reports
-          </button>
+          </Link>
         </nav>
         <div className="header-icons">
           <button className="icon-btn" title="Settings">

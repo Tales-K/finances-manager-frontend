@@ -7,8 +7,8 @@ import GitHubIcon from "../../static/github-icon.svg";
 import Logo from "../../static/logo.svg";
 
 export default function Login({ onLogin }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("admin");
+  const [password, setPassword] = useState("teste123");
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
 

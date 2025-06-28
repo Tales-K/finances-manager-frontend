@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import "./App.css";
 import Header from "./layout/Header";
 import Login from "./pages/Login/Login";
@@ -7,24 +7,33 @@ import Transactions from "./pages/Transactions/Transactions";
 import Reports from "./pages/Reports/Reports";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [page, setPage] = useState("dashboard");
+  const location = useLocation();
 
-  const handleLogin = (username) => {
-    setUser(username);
-    setPage("dashboard");
+  // For debug purposes, skip login and go directly to pages
+  const getCurrentPage = () => {
+    const path = location.pathname;
+    if (path === '/dashboard') return 'dashboard';
+    if (path === '/transactions') return 'transactions';
+    if (path === '/reports') return 'reports';
+    if (path === '/login') return 'login';
+    return 'dashboard';
   };
-  if (!user) {
-    return <Login onLogin={handleLogin} />;
-  }
+
+  const currentPage = getCurrentPage();
 
   return (
     <div className="app-container">
-      <Header currentPage={page} onNavigate={setPage} />
+      {currentPage !== 'login' && (
+        <Header currentPage={currentPage} />
+      )}
       <main>
-        {page === "dashboard" && <Dashboard />}
-        {page === "transactions" && <Transactions />}
-        {page === "reports" && <Reports />}
+        <Routes>
+          <Route path="/login" element={<Login onLogin={() => {}} />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        </Routes>
       </main>
     </div>
   );
