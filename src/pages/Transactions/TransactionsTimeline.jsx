@@ -41,9 +41,15 @@ export default function TransactionsTimeline({ title, transactionGroups, onToggl
           <div key={group.date} className="transactions-timeline-group">
             {/* Day Header */}
             <div className="transactions-timeline-day-header">
-              <span className="transactions-timeline-day-number">
-                {group.dayOfMonth}
-              </span>
+              <div className="transactions-timeline-day-info">
+                <span className="transactions-timeline-day-number">
+                  {group.dayOfMonth}
+                </span>
+                <div className="transactions-timeline-date-details">
+                  <span className="day-name">{group.dayName}</span>
+                  <span className="month-name">{group.monthName}</span>
+                </div>
+              </div>
             </div>
 
             {/* Transactions List for this day */}

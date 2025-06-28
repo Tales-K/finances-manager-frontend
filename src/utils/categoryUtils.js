@@ -73,12 +73,25 @@ export const groupTransactionsByDate = (transactions) => {
     const fullDate = transaction.originalTransaction.date;
     // Use only the date part (YYYY-MM-DD) as the key to group transactions from the same day
     const dateKey = new Date(fullDate).toISOString().split('T')[0];
-    const dayOfMonth = new Date(fullDate).getDate().toString().padStart(2, "0");
+    const dateObj = new Date(fullDate);
+    
+    // Enhanced date formatting
+    const dayOfMonth = dateObj.getDate().toString().padStart(2, "0");
+    const dayName = dateObj.toLocaleDateString("en-US", { weekday: "short" }); // Mon, Tue, etc.
+    const monthName = dateObj.toLocaleDateString("en-US", { month: "short" }); // Jan, Feb, etc.
+    const fullDateDisplay = dateObj.toLocaleDateString("en-US", { 
+      weekday: "short", 
+      month: "short", 
+      day: "numeric" 
+    }); // "Mon, Jun 2"
 
     if (!acc[dateKey]) {
       acc[dateKey] = {
         date: fullDate, // Keep original date for sorting
         dayOfMonth: dayOfMonth,
+        dayName: dayName,
+        monthName: monthName,
+        fullDateDisplay: fullDateDisplay,
         transactions: [],
       };
     }
