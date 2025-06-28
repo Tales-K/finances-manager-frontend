@@ -47,7 +47,9 @@ export default function TransactionsTimeline({ title, transactionGroups, onToggl
                 </span>
                 <div className="transactions-timeline-date-details">
                   <span className="day-name">{group.dayName}</span>
-                  <span className="month-name">{group.monthName}</span>
+                  <span className={`month-name ${group.isDifferentYear ? 'with-year' : ''}`}>
+                    {group.monthDisplay}
+                  </span>
                 </div>
               </div>
             </div>

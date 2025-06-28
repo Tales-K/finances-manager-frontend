@@ -1,0 +1,69 @@
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .header {
+    padding: 0 16px;
+  }
+  
+  .header-content {
+    gap: 16px;
+  }
+  
+  .header-nav {
+    gap: 6px;
+    padding: 6px;
+  }
+  
+  .header-nav a,
+  .header-nav button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 12px;
+    min-height: 60px;
+  }
+  
+  .header-content {
+    gap: 12px;
+  }
+  
+  .header-logo {
+    height: 36px;
+    padding: 6px 12px;
+  }
+  
+  .header-nav {
+    gap: 4px;
+    padding: 4px;
+  }
+  
+  .header-nav a,
+  .header-nav button {
+    padding: 6px 10px;
+    font-size: 13px;
+    gap: 6px;
+  }
+  
+  .icon-btn {
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-nav a span,
+  .header-nav button span {
+    display: none; /* Hide text on very small screens, show only icons */
+  }
+  
+  .header-nav a,
+  .header-nav button {
+    padding: 8px;
+    min-width: 40px;
+    justify-content: center;
+  }
+}

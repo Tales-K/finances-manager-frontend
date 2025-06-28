@@ -53,6 +53,12 @@
   line-height: 1.2;
 }
 
+.month-name.with-year {
+  font-weight: 600;
+  color: #fbbf24; /* Highlight year with a subtle yellow color */
+  font-size: 11px; /* Slightly smaller to fit year */
+}
+
 .transactions-timeline-day-list {
   display: flex;
   flex-direction: column;
@@ -85,5 +91,9 @@
   
   .month-name {
     font-size: 11px;
+  }
+  
+  .month-name.with-year {
+    font-size: 10px;
   }
 }

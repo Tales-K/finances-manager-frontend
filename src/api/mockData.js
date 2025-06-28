@@ -317,6 +317,20 @@ export const mockTransactions = [
     date: "2025-06-30T16:00:00Z",
     paid: false,
   },
+  // Test transaction from previous year to demonstrate year display
+  {
+    id: 999,
+    type: "EXPENSE",
+    title: "Previous Year Bill",
+    value: -250.00,
+    description: "Test transaction from 2024",
+    categoryId: 2, // Home category
+    accountId: 1,
+    cardId: null,
+    tags: [],
+    date: "2024-12-15T10:00:00Z",
+    paid: true,
+  },
 ];
 
 /**

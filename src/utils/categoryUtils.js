@@ -69,6 +69,8 @@ export const formatTransactionsWithCategories = (transactions, categories) => {
  * @returns {Array} Array of date groups with transactions
  */
 export const groupTransactionsByDate = (transactions) => {
+  const currentYear = new Date().getFullYear();
+  
   const grouped = transactions.reduce((acc, transaction) => {
     const fullDate = transaction.originalTransaction.date;
     // Use only the date part (YYYY-MM-DD) as the key to group transactions from the same day
@@ -79,11 +81,18 @@ export const groupTransactionsByDate = (transactions) => {
     const dayOfMonth = dateObj.getDate().toString().padStart(2, "0");
     const dayName = dateObj.toLocaleDateString("en-US", { weekday: "short" }); // Mon, Tue, etc.
     const monthName = dateObj.toLocaleDateString("en-US", { month: "short" }); // Jan, Feb, etc.
+    const year = dateObj.getFullYear();
+    const isDifferentYear = year !== currentYear;
+    
+    // Conditionally include year in month display if different from current year
+    const monthDisplay = isDifferentYear ? `${monthName} ${year}` : monthName;
+    
     const fullDateDisplay = dateObj.toLocaleDateString("en-US", { 
       weekday: "short", 
       month: "short", 
-      day: "numeric" 
-    }); // "Mon, Jun 2"
+      day: "numeric",
+      ...(isDifferentYear && { year: "numeric" })
+    }); // "Mon, Jun 2" or "Mon, Jun 2, 2024"
 
     if (!acc[dateKey]) {
       acc[dateKey] = {
@@ -91,6 +100,9 @@ export const groupTransactionsByDate = (transactions) => {
         dayOfMonth: dayOfMonth,
         dayName: dayName,
         monthName: monthName,
+        monthDisplay: monthDisplay, // This will include year if different
+        year: year,
+        isDifferentYear: isDifferentYear,
         fullDateDisplay: fullDateDisplay,
         transactions: [],
       };

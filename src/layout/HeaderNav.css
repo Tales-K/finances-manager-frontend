@@ -1,0 +1,58 @@
+/* Navigation styles */
+.header-nav {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(17, 24, 39, 0.6);
+  padding: 8px;
+  border-radius: 16px;
+  border: 1px solid #374151;
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.header-nav a,
+.header-nav button {
+  background: none;
+  border: none;
+  color: #d1d5db;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.header-nav a.active, 
+.header-nav a:hover,
+.header-nav button.active, 
+.header-nav button:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.header-nav a.active::before,
+.header-nav button.active::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #3b82f6;
+  border-radius: 50%;
+}

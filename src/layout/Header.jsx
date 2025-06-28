@@ -18,19 +18,22 @@ export default function Header({ currentPage }) {
             to="/dashboard"
             className={currentPage === "dashboard" ? "active" : ""}
           >
-            <FaChartPie size={18} color="#2563eb" /> Dashboard
+            <FaChartPie size={18} color="#2563eb" />
+            <span>Dashboard</span>
           </Link>
           <Link
             to="/transactions"
             className={currentPage === "transactions" ? "active" : ""}
           >
-            <FaExchangeAlt size={18} color="#2563eb" /> Transactions
+            <FaExchangeAlt size={18} color="#2563eb" />
+            <span>Transactions</span>
           </Link>
           <Link
             to="/reports"
             className={currentPage === "reports" ? "active" : ""}
           >
-            <FaFileAlt size={18} color="#2563eb" /> Reports
+            <FaFileAlt size={18} color="#2563eb" />
+            <span>Reports</span>
           </Link>
         </nav>
         <div className="header-icons">
