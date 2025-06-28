@@ -70,7 +70,7 @@ export default function TransactionsTimeline({ title, transactionGroups, onToggl
                         <div className="transactions-timeline-description">
                           {transaction.title}
                           {isOverdue && (
-                            <div className="overdue-indicator" title="Late for payment">
+                            <div className="overdue-indicator">
                               <FaClock size={12} />
                             </div>
                           )}
