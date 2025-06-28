@@ -5,7 +5,6 @@
   border-radius: 12px;
   padding: 24px;
   color: #f9fafb;
-  max-width: 100%;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -71,7 +70,6 @@
   transition: all 0.2s ease;
   border: 1px solid #4b5563;
   margin-bottom: 8px;
-  width: 100%;
 }
 
 .transactions-timeline-item:last-child {
@@ -104,7 +102,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  width: 100%;
   min-width: 0;
 }
 
@@ -165,9 +162,8 @@
 
 /* Center timeline in the new layout */
 .center-content .transactions-timeline {
-  width: 100%;
   min-width: 500px;
-  max-width: 700px;
+  /* Removed width and max-width to allow natural flex behavior */
 }
 
 /* Responsive Design */
