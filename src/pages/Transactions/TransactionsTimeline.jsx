@@ -1,4 +1,5 @@
 import React from "react";
+import { FaClock } from "react-icons/fa"; // Import clock icon for overdue indicator
 import "./TransactionsTimeline.css";
 
 function formatValue(val, isIncome = false) {
@@ -6,6 +7,20 @@ function formatValue(val, isIncome = false) {
     minimumFractionDigits: 2,
   });
   return isIncome ? `+${formattedValue}` : `-${formattedValue}`;
+}
+
+// Helper function to check if a transaction is overdue
+function isTransactionOverdue(transaction) {
+  if (transaction.paid) return false; // Paid transactions are never overdue
+  
+  const transactionDate = new Date(transaction.originalTransaction.date);
+  const currentDate = new Date();
+  
+  // Remove time component for date comparison
+  transactionDate.setHours(23, 59, 59, 999);
+  currentDate.setHours(0, 0, 0, 0);
+  
+  return transactionDate < currentDate;
 }
 
 export default function TransactionsTimeline({ title, transactionGroups, onTogglePaid }) {
@@ -35,9 +50,11 @@ export default function TransactionsTimeline({ title, transactionGroups, onToggl
             <div className="transactions-timeline-day-list">
               {group.transactions.map((transaction, index) => {
                 const IconComponent = transaction.iconComponent;
+                const isOverdue = isTransactionOverdue(transaction);
+                
                 return (
                   <div key={transaction.id}>
-                    <div className="transactions-timeline-item">
+                    <div className={`transactions-timeline-item ${isOverdue ? 'overdue' : ''}`}>
                       {/* Transaction Icon */}
                       <div className="transactions-timeline-icon-wrapper">
                         <div
@@ -52,6 +69,11 @@ export default function TransactionsTimeline({ title, transactionGroups, onToggl
                       <div className="transactions-timeline-info">
                         <div className="transactions-timeline-description">
                           {transaction.title}
+                          {isOverdue && (
+                            <div className="overdue-indicator" title="Late for payment">
+                              <FaClock size={12} />
+                            </div>
+                          )}
                         </div>
                         <div className="transactions-timeline-account">
                           {transaction.account}

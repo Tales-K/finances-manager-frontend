@@ -9,6 +9,10 @@
   padding: 24px;
   color: #f9fafb;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't exceed container */
+  box-sizing: border-box; /* Include padding in width calculation */
+  overflow: hidden; /* Prevent any content from overflowing */
 }
 
 .transactions-timeline-header {
@@ -25,6 +29,8 @@
 .transactions-timeline-content {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Dividers */

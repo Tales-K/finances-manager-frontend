@@ -39,7 +39,7 @@
  * }
  */
 export const mockTransactions = [
-  // June 2nd
+  // June 2nd - OVERDUE (past due date)
   {
     id: 1,
     type: "EXPENSE",
@@ -51,6 +51,20 @@ export const mockTransactions = [
     cardId: null,
     tags: [4, 7], // Emergency, Health
     date: "2025-06-02T10:00:00Z",
+    paid: false,
+  },
+  // June 1st - DEFINITELY OVERDUE for testing
+  {
+    id: 10,
+    type: "EXPENSE",
+    title: "Overdue Test Bill",
+    value: -99.99,
+    description: "Test overdue transaction",
+    categoryId: 2, // Home category
+    accountId: 1,
+    cardId: null,
+    tags: [],
+    date: "2025-06-01T10:00:00Z",
     paid: false,
   },
   // June 4th

@@ -57,7 +57,7 @@ export const formatTransactionsWithCategories = (transactions, categories) => {
       category: categoryInfo.name,
       account: transaction.account || "Main Account",
       isIncome: isIncome,
-      isDone: isDone,
+      paid: isDone, // Use 'paid' instead of 'isDone' to match timeline component
       originalTransaction: transaction,
     };
   });
