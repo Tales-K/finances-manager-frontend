@@ -7,273 +7,14 @@
   color: #f9fafb;
 }
 
-/* Header Section */
-.transactions-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.title-section {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.title-section h1 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: #f9fafb;
-}
-
-.month-navigator {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: #1f2937;
-  border: 1px solid #374151;
-  border-radius: 12px;
-  padding: 12px 20px;
-}
-
-.nav-arrow {
-  background: none;
-  border: none;
-  color: #9ca3af;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 4px;
-  transition: color 0.2s;
-}
-
-.nav-arrow:hover {
-  color: #f9fafb;
-}
-
-.month-display {
-  font-size: 16px;
-  font-weight: 500;
-  color: #f9fafb;
-  min-width: 120px;
-  text-align: center;
-}
-
-.header-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.action-btn {
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: 1px solid #374151;
-  border-radius: 8px;
-  color: #9ca3af;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.action-btn:hover {
-  border-color: #2563eb;
-  color: #2563eb;
-}
-
 /* Main Content */
 .transactions-content {
   display: flex;
-  gap: 32px;
-  width: 80%; /* 10% padding on each side = 80% width */
+  gap: 24px; /* Consistent gap between all items */
+  width: 85%; /* Slightly wider to accommodate gaps */
   max-width: 1600px;
   margin: 0 auto;
   align-items: flex-start;
-}
-
-/* Timeline Styles */
-.transactions-timeline {
-  background: #1f2937;
-  border: 1px solid #374151;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 24px;
-}
-
-.timeline-date-group {
-  border-bottom: 1px solid #374151;
-}
-
-.timeline-date-group:last-child {
-  border-bottom: none;
-}
-
-.timeline-date-header {
-  background: #111827;
-  padding: 16px 20px;
-  border-bottom: 1px solid #374151;
-  position: sticky;
-  top: 0;
-  z-index: 5;
-}
-
-.timeline-date-header h3 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: #f9fafb;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.date-badge {
-  background: #2563eb;
-  color: #ffffff;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-  min-width: 24px;
-  text-align: center;
-}
-
-.timeline-items {
-  padding: 0;
-}
-
-.transactions-timeline-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  border-bottom: 1px solid #374151;
-  transition: background-color 0.2s;
-}
-
-.transactions-timeline-item:last-child {
-  border-bottom: none;
-}
-
-.transactions-timeline-item:hover {
-  background: #111827;
-}
-
-.transactions-timeline-icon-wrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #ffffff;
-  font-size: 16px;
-}
-
-.transactions-timeline-content {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 0;
-}
-
-.transactions-timeline-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-  flex: 1;
-}
-
-.transactions-timeline-title {
-  font-weight: 500;
-  color: #f9fafb;
-  font-size: 14px;
-  margin: 0;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.transactions-timeline-subtitle {
-  font-size: 12px;
-  color: #9ca3af;
-  margin: 0;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.transactions-timeline-amount {
-  font-weight: 600;
-  font-size: 14px;
-  text-align: right;
-  white-space: nowrap;
-  margin-left: 12px;
-}
-
-.transactions-timeline-amount.income {
-  color: #10b981;
-}
-
-.transactions-timeline-amount.expense {
-  color: #ef4444;
-}
-
-/* Transaction status indicators */
-.transactions-timeline-item.completed .transactions-timeline-title {
-  text-decoration: line-through;
-  opacity: 0.7;
-}
-
-.transactions-timeline-item.completed .transactions-timeline-icon-wrapper {
-  opacity: 0.7;
-}
-
-/* Empty state */
-.empty-timeline {
-  padding: 60px 20px;
-  text-align: center;
-  color: #6b7280;
-}
-
-.empty-timeline-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-  opacity: 0.5;
-}
-
-.empty-timeline p {
-  margin: 0;
-  font-size: 14px;
-}
-
-/* Sidebars */
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex: 1; /* Equal flex for left and right sidebars */
-  min-height: 600px;
-  position: relative;
-  align-items: center;
-}
-
-.left-sidebar {
-  align-items: center;
-}
-
-.right-sidebar {
-  align-items: center;
 }
 
 /* Center Content */
@@ -283,8 +24,8 @@
   flex-direction: column;
   gap: 24px;
   align-items: stretch;
-  min-width: 500px;
-  /* Removed max-width to allow full expansion */
+  min-width: 0; /* Allow flex shrinking */
+  max-width: none; /* Remove any max-width restrictions */
 }
 
 /* Loading */
@@ -305,14 +46,6 @@
     width: 90%; /* Reduce padding on tablets */
   }
   
-  .sidebar {
-    width: 100%;
-    max-width: 600px;
-    flex-direction: row;
-    overflow-x: auto;
-    flex: none; /* Remove flex on mobile */
-  }
-  
   .center-content {
     width: 100%;
     max-width: 600px;
@@ -327,23 +60,5 @@
   
   .transactions-content {
     width: 95%; /* Further reduce padding on mobile */
-  }
-  
-  .transactions-header {
-    flex-direction: column;
-    gap: 16px;
-    align-items: stretch;
-  }
-  
-  .title-section {
-    justify-content: center;
-  }
-  
-  .header-actions {
-    justify-content: center;
-  }
-  
-  .sidebar {
-    gap: 12px;
   }
 }

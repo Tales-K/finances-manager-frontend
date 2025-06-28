@@ -54,3 +54,7 @@ applyTo: '**'
 
 ## Language
 33. **Use english language**: even if the provided prompt or image is in other language. Translate existent code, texts, labels that are not in english.
+
+## Others
+34. **Avoid too many ifs**, use object composition instead
+35. **Check file size** for all changed files using a single command that lists the size of all of them

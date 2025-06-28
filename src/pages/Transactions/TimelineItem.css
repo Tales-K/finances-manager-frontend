@@ -1,0 +1,94 @@
+/* Individual transaction item styling */
+.transactions-timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: transparent;
+  transition: background-color 0.2s ease;
+  min-height: 60px;
+}
+
+.transactions-timeline-item:hover {
+  background: #374151;
+  border-radius: 8px;
+}
+
+.transactions-timeline-icon-wrapper {
+  flex-shrink: 0;
+}
+
+.transactions-timeline-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.transactions-timeline-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.transactions-timeline-description {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f9fafb;
+  line-height: 1.3;
+}
+
+.transactions-timeline-account {
+  font-size: 13px;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.transactions-timeline-amount {
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+.amount-value {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.amount-value.expense {
+  color: #f87171;
+}
+
+.amount-value.income {
+  color: #34d399;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .transactions-timeline-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .transactions-timeline-item {
+    padding: 8px 12px;
+    gap: 12px;
+  }
+  
+  .transactions-timeline-description {
+    font-size: 14px;
+  }
+  
+  .transactions-timeline-account {
+    font-size: 12px;
+  }
+  
+  .amount-value {
+    font-size: 14px;
+  }
+}

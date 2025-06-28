@@ -1,4 +1,7 @@
-/* TransactionsTimeline.css */
+/* TransactionsTimeline.css - Main container and imports */
+@import './TimelineDay.css';
+@import './TimelineItem.css';
+@import './TimelineStatusToggle.css';
 
 .transactions-timeline {
   background: #1f2937;
@@ -22,196 +25,31 @@
 .transactions-timeline-content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
-.transactions-timeline-group {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.transactions-timeline-date {
-  flex-shrink: 0;
-  width: 40px;
-  display: flex;
-  justify-content: center;
-  padding-top: 16px; /* Align with first transaction item */
-}
-
-.transactions-timeline-day {
-  font-size: 18px;
-  font-weight: 700;
-  color: #9ca3af;
+/* Dividers */
+.transaction-divider {
+  height: 1px;
   background: #374151;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #4b5563;
+  margin: 0 16px;
 }
 
-.transactions-timeline-items {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.transactions-timeline-item {
-  background: #374151;
-  border-radius: 12px;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.2s ease;
-  border: 1px solid #4b5563;
-  margin-bottom: 8px;
-}
-
-.transactions-timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.transactions-timeline-item:hover {
+.day-divider {
+  height: 2px;
   background: #4b5563;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.transactions-timeline-icon-wrapper {
-  flex-shrink: 0;
-}
-
-.transactions-timeline-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.transactions-timeline-content-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  min-width: 0;
-}
-
-.transactions-timeline-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-}
-
-.transactions-timeline-description {
-  font-size: 15px;
-  font-weight: 500;
-  color: #f9fafb;
-  line-height: 1.3;
-}
-
-.transactions-timeline-account {
-  font-size: 13px;
-  color: #9ca3af;
-  font-weight: 400;
-}
-
-.transactions-timeline-amount-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.transactions-timeline-amount {
-  font-size: 15px;
-  font-weight: 600;
-  text-align: right;
-  min-width: 80px;
-}
-
-.transactions-timeline-amount.expense {
-  color: #f87171;
-}
-
-.transactions-timeline-amount.income {
-  color: #34d399;
-}
-
-.transactions-timeline-status {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.transactions-timeline-status-icon {
-  font-size: 12px;
-  color: #9ca3af;
+  margin: 24px 0;
+  border-radius: 1px;
 }
 
 /* Center timeline in the new layout */
 .center-content .transactions-timeline {
-  min-width: 500px;
-  /* Removed width and max-width to allow natural flex behavior */
+  width: 100%;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .transactions-timeline {
     padding: 16px;
-  }
-  
-  .transactions-timeline-group {
-    gap: 12px;
-  }
-  
-  .transactions-timeline-date {
-    width: 32px;
-    padding-top: 12px; /* Maintain alignment on mobile */
-  }
-  
-  .transactions-timeline-day {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-  
-  .transactions-timeline-icon {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .transactions-timeline-item {
-    padding: 12px;
-    gap: 8px;
-  }
-  
-  .transactions-timeline-content-wrapper {
-    gap: 8px;
-  }
-  
-  .transactions-timeline-description {
-    font-size: 14px;
-  }
-  
-  .transactions-timeline-account {
-    font-size: 12px;
-  }
-  
-  .transactions-timeline-amount {
-    font-size: 14px;
-    min-width: 70px;
   }
 }
 

@@ -25,7 +25,7 @@ export const getCategoryInfo = (categories, categoryId) => {
   return {
     icon: FaEllipsisH,
     color: "#6b7280",
-    name: "Categoria desconhecida",
+    name: "Unknown Category",
     type: null,
     isUserCreated: false,
   };
@@ -51,11 +51,11 @@ export const formatTransactionsWithCategories = (transactions, categories) => {
       id: transaction.id,
       iconComponent: categoryInfo.icon || FaEllipsisH,
       title: title,
-      date: new Date(transaction.date).toLocaleDateString("pt-BR"),
+      date: new Date(transaction.date).toLocaleDateString("en-US"),
       value: Math.abs(value),
       color: categoryInfo.color,
       category: categoryInfo.name,
-      account: transaction.account || "Conta Principal",
+      account: transaction.account || "Main Account",
       isIncome: isIncome,
       isDone: isDone,
       originalTransaction: transaction,
@@ -70,18 +70,20 @@ export const formatTransactionsWithCategories = (transactions, categories) => {
  */
 export const groupTransactionsByDate = (transactions) => {
   const grouped = transactions.reduce((acc, transaction) => {
-    const date = transaction.originalTransaction.date;
-    const dayOfMonth = new Date(date).getDate().toString().padStart(2, "0");
+    const fullDate = transaction.originalTransaction.date;
+    // Use only the date part (YYYY-MM-DD) as the key to group transactions from the same day
+    const dateKey = new Date(fullDate).toISOString().split('T')[0];
+    const dayOfMonth = new Date(fullDate).getDate().toString().padStart(2, "0");
 
-    if (!acc[date]) {
-      acc[date] = {
-        date: date,
+    if (!acc[dateKey]) {
+      acc[dateKey] = {
+        date: fullDate, // Keep original date for sorting
         dayOfMonth: dayOfMonth,
         transactions: [],
       };
     }
 
-    acc[date].transactions.push(transaction);
+    acc[dateKey].transactions.push(transaction);
 
     return acc;
   }, {});

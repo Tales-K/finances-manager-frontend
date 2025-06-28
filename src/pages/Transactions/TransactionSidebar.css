@@ -1,0 +1,35 @@
+/* Sidebars */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  min-height: 600px;
+  position: relative;
+  align-items: center;
+}
+
+.left-sidebar {
+  align-items: center;
+}
+
+.right-sidebar {
+  align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 100%;
+    max-width: 600px;
+    flex-direction: row;
+    overflow-x: auto;
+    flex: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    gap: 12px;
+  }
+}

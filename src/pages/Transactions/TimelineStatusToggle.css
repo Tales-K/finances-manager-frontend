@@ -1,0 +1,64 @@
+/* Payment Status Toggle Buttons */
+.transactions-timeline-status {
+  flex-shrink: 0;
+}
+
+.status-toggle {
+  background: var(--card-bg, #1f2937);
+  border: 1px solid var(--border-color, #374151);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-toggle:hover {
+  border-color: var(--text-muted, #9ca3af);
+  transform: translateY(-1px);
+}
+
+.status-toggle.paid {
+  background: var(--success-color, #22c55e);
+  border-color: var(--success-color, #22c55e);
+  color: white;
+}
+
+.status-toggle.paid::after {
+  content: "✓";
+}
+
+.status-toggle.unpaid {
+  background: var(--secondary-color, #374151);
+  border-color: var(--border-color, #4b5563);
+  color: var(--text-muted, #9ca3af);
+}
+
+.status-toggle.unpaid::after {
+  content: "○";
+}
+
+.status-toggle.paid:hover {
+  background: var(--primary-hover, #16a34a);
+  border-color: var(--primary-hover, #16a34a);
+}
+
+.status-toggle.unpaid:hover {
+  background: var(--error-color, #ef4444);
+  border-color: var(--error-color, #ef4444);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .status-toggle {
+    width: 28px;
+    height: 28px;
+    font-size: 10px;
+  }
+}
